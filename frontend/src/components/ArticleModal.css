@@ -1,0 +1,250 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+  overflow-y: auto;
+}
+
+.modal-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  position: sticky;
+  top: 1rem;
+  right: 1rem;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface-light);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  margin: 1rem;
+}
+
+.modal-close:hover {
+  background: var(--primary);
+  color: white;
+  transform: rotate(90deg);
+  border-color: var(--primary);
+}
+
+.modal-content {
+  padding: 2rem 3rem 3rem;
+  clear: both;
+}
+
+.modal-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.modal-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+.modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.meta-icon {
+  font-size: 1.125rem;
+}
+
+.modal-body {
+  color: var(--text);
+}
+
+.article-content-wrapper {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.article-content-wrapper h1,
+.article-content-wrapper h2,
+.article-content-wrapper h3 {
+  color: var(--text);
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.article-content-wrapper h1 {
+  font-size: 2rem;
+}
+
+.article-content-wrapper h2 {
+  font-size: 1.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.article-content-wrapper h3 {
+  font-size: 1.5rem;
+}
+
+.article-content-wrapper p {
+  margin-bottom: 1.25rem;
+  color: var(--text-muted);
+}
+
+.article-content-wrapper a {
+  color: var(--primary-light);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.article-content-wrapper a:hover {
+  color: var(--secondary);
+  border-bottom-color: var(--secondary);
+}
+
+.article-content-wrapper hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 2rem 0;
+}
+
+.original-source {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: var(--surface-light);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.source-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.source-link {
+  color: var(--primary-light);
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.3s ease;
+}
+
+.source-link:hover {
+  color: var(--secondary);
+}
+
+/* Custom Scrollbar for Modal */
+.modal-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-container::-webkit-scrollbar-track {
+  background: var(--surface-light);
+  border-radius: 0 20px 20px 0;
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.modal-container::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .modal-container {
+    max-height: 100vh;
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.75rem;
+  }
+
+  .modal-meta {
+    gap: 1rem;
+  }
+
+  .article-content-wrapper {
+    font-size: 1rem;
+  }
+
+  .article-content-wrapper h1 {
+    font-size: 1.5rem;
+  }
+
+  .article-content-wrapper h2 {
+    font-size: 1.375rem;
+  }
+
+  .article-content-wrapper h3 {
+    font-size: 1.25rem;
+  }
+}
