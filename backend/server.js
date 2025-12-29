@@ -27,6 +27,18 @@ mongoose.connect(process.env.MONGODB_URI, {
 // Routes
 app.use('/api/articles', require('./routes/articles'));
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'BeyondChats API',
+    status: 'running',
+    endpoints: {
+      health: '/api/health',
+      articles: '/api/articles'
+    }
+  });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ 
